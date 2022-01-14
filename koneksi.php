@@ -3,7 +3,7 @@
 $server   = "localhost";
 $username = "root";
 $password = "";
-$database = "01_mywebsite1_12rpl1";
+$database = "perpustakaan";
 
 $konek = mysqli_connect($server,$username,$password,$database);
 
