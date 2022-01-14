@@ -58,32 +58,12 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="" method="post">
+            <form action="?page=anggota-insert" method="post">
                 <div class="form-group">
                     <input class="form-control" type="text" name="nis" placeholder="Nomor Induk Siswa" required>
                 </div>
                 <div class="form-group mt-2">
                     <input class="form-control" type="text" name="nama" placeholder="Nama Lengkap" required>
-                </div>
-                <div class="form-group mt-2">
-                    <select class="form-control" name="kelas" required>
-                        <option value="">--Pilih Kelas--</option>
-                        <option value="XIIRPL1">XII RPL 1</option>
-                        <option value="XIIRPL2">XII RPL 2</option>
-                        <option value="XIIRPL3">XII RPL 3</option>
-                    </select>
-                </div>
-                <div class="form-group mt-2">
-                    <select class="form-control" name="jurusan" required>
-                        <option value="">--Pilih Jurusan--</option>
-                        <option value="RPL">Rekayasa Perangkat Lunak</option>
-                        <option value="TAV">Teknik Audio Video</option>
-                        <option value="TKR">Teknik Kendaraan Ringan</option>
-                        <option value="TITL">Teknik Instalasi Tenaga Listrik</option>
-                    </select>
-                </div>
-                <div class="form-group mt-2">
-                    <input class="form-control" type="date" name="tgl_lahir">
                 </div>
                 <div class="form-group mt-2">
                     <select class="form-control" name="jk">
@@ -92,6 +72,43 @@
                         <option value="P">Perempuan</option>
                     </select>
                 </div>
+                <div class="form-group mt-2">
+                    <input class="form-control" type="text" name="tpt_lahir" placeholder="Tempat Lahir">
+                </div>
+                <div class="form-group mt-2">
+                    <input class="form-control" type="date" name="tgl_lahir">
+                </div>
+                <div class="form-group mt-2">
+                    <select class="form-control" name="kelas" required>
+                        <option value="">--Pilih Kelas--</option>
+                        <?php
+                        $query = mysqli_query($konek,"SELECT * FROM kelas");
+                        foreach ($query as $row) {
+                            ?>
+                            <option value="<?php echo $row["id_kelas"]?>">
+                                <?php echo $row["nama_kelas"]?>
+                            </option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group mt-2">
+                    <select class="form-control" name="jurusan" required>
+                        <option value="">--Pilih Jurusan--</option>
+                        <?php
+                        $query = mysqli_query($konek,"SELECT * FROM jurusan");
+                        foreach ($query as $row) {
+                            ?>
+                            <option value="<?php echo $row["id_jurusan"]?>">
+                                <?php echo $row["nama_jurusan"]?>
+                            </option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                </div>
+                
                 <div class="form-group mt-2">
                     <input class="form-control" type="text" name="tlp" placeholder="Nomor Telepon">
                 </div>
