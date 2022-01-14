@@ -38,7 +38,7 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/my_website1/admin.php">Home</a>
+                                <a class="nav-link active" aria-current="page" href="/perpustakaan/dashboard.php">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="?page=anggota">Anggota</a>
@@ -72,6 +72,7 @@
         </div>
         <div class="row">
             <div class="col-12">
+                <!-- Control menu navigasi -->
                 <?php
                 if(isset($_GET['page'])){
                     if ($_GET['page']=="anggota") {
@@ -82,6 +83,8 @@
                         include('anggota-insert.php');
                     }elseif($_GET['page']=="anggota-edit"){
                         include('anggota-edit.php');
+                    }elseif($_GET['page']=="anggota-edit-proses"){
+                        include('anggota-edit-proses.php');
                     }elseif($_GET['page']=="buku"){
                         include('buku.php');
                     }
