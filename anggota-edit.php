@@ -2,22 +2,29 @@
     <div class="col-3"></div>
     <div class="col-6">
         <center><h1>Form Edit Data Anggota</h1></center>
+        <!-- Proses query untuk menampilkan data yang mau di edit -->
+        <?php
+            $id = $_GET['id'];
+            $query = mysqli_query($konek,"SELECT * FROM anggota WHERE id_anggota = '$id'");
+            foreach ($query as $row) {
+        ?>
+        <!-- -------------------------------------------------- -->
         <form action="" method="post">
             <div class="form-group">
-                <input class="form-control" type="text" name="nis" placeholder="Nomor Induk Siswa" required>
+                <input value="<?php echo $row['nis'] ?>" class="form-control" type="text" name="nis" placeholder="Nomor Induk Siswa" required>
             </div>
             <div class="form-group mt-2">
-                <input class="form-control" type="text" name="nama" placeholder="Nama Lengkap" required>
+                <input value="<?php echo $row['nama'] ?>" class="form-control" type="text" name="nama" placeholder="Nama Lengkap" required>
             </div>
             <div class="form-group mt-2">
                 <select class="form-control" name="jk">
-                    <option value="">--Pilih Jenis Kelamin--</option>
+                    <option value="<?php echo $row['jk'] ?>"><?php echo $row['jk'] ?></option>
                     <option value="L">Laki-laki</option>
                     <option value="P">Perempuan</option>
                 </select>
             </div>
             <div class="form-group mt-2">
-                            <input class="form-control" type="text" name="tpt_lahir" placeholder="Tempat Lahir">
+                <input value="<?php echo $row['tempat_lahir'] ?>" class="form-control" type="text" name="tpt_lahir" placeholder="Tempat Lahir">
             </div>
             <div class="form-group mt-2">
                 <input class="form-control" type="date" name="tgl_lahir">
@@ -66,6 +73,9 @@
             </center>
             <br>
         </form>
+        <?php
+        }
+        ?>
     </div>
     <div class="col-3"></div>
 </div>
